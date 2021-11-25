@@ -191,6 +191,8 @@ class GoBGPQueryWrapper:
             "type.googleapis.com/gobgpapi.LsAttribute": "LsAttribute",
             "type.googleapis.com/gobgpapi.MpReachNLRIAttribute": "MpReachNLRIAttribute",
             "type.googleapis.com/gobgpapi.LsPrefixV4NLRI": "LsPrefixV4NLRI",
+            "type.googleapis.com/gobgpapi.LsLinkNLRI": "LsLinkNLRI",
+            "type.googleapis.com/gobgpapi.LsNodeNLRI": "LsNodeNLRI",
         }
 
         # If you load a nest of different types, some of which are collections.OrderedDict,
