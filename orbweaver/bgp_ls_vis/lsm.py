@@ -1,8 +1,8 @@
 import threading
 import time
 import networkx
-import orbweaver.bgp_ls_vis.proto as proto
-import orbweaver.bgp_ls_vis.graphing as graphing
+import proto
+import graphing as graphing
 
 
 class LinkStateManager:

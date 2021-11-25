@@ -1,0 +1,4 @@
+global:
+  config:
+    as: 65001
+    router-id: 10.2.9.9
