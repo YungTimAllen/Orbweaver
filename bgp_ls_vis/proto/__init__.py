@@ -1,9 +1,6 @@
-"""t"""
+"""gRPC tools and definitions"""
 # Standard Imports
-
 from json import loads, dumps
-from pprint import pprint
-
 import yaml
 from google.protobuf.json_format import MessageToDict
 
@@ -71,102 +68,6 @@ class GoBGPQueryWrapper:
         return self.__get_bgp_ls_table()
 
     def get_lsdb(self, filename: str = None) -> list:
-        """Public method to get a version of the BGP-LS LSDB thats more concise
-
-        The default return from calling self.stub.ListPath(request) is more verbose than the
-        usecase requires, so this method cuts out most of the unncessary information and
-        provides a concise structure of LSAs.
-
-        Returns:
-            List of dict objects, representing Link Prefix and Node LSAs
-        """
-        b_rib = (
-            self.__get_bgp_ls_table()
-            if not filename
-            else yaml.load(open(filename, "r"), Loader=yaml.Loader)
-        )
-
-        filtered_lsdb = []
-
-        for lsa in b_rib:
-            best_path = [p for p in lsa["destination"]["paths"] if p["best"]][0]
-
-            paths_nlri = dict(best_path["nlri"]["nlri"])
-
-            paths_pattrs = [dict(pattr) for pattr in best_path["pattrs"]]
-            paths_pattrs_types = [pattr["@type"] for pattr in paths_pattrs]
-
-            # Not all NLRI has the LSAttr attribute - see psueodnodes on Cisco
-            if "type.googleapis.com/gobgpapi.LsAttribute" in paths_pattrs_types:
-                paths_pattr_lsattr = [
-                    attr
-                    for attr in paths_pattrs
-                    if attr["@type"] == "type.googleapis.com/gobgpapi.LsAttribute"
-                ][0]
-            else:
-                paths_pattr_lsattr = {
-                    "node": None,
-                    "link": None,
-                    "prefix": None,
-                }
-
-            if "type.googleapis.com/gobgpapi.OriginAttribute" in paths_pattrs_types:
-                pass
-
-            if "type.googleapis.com/gobgpapi.AsPathAttribute" in paths_pattrs_types:
-                pass
-
-            if "type.googleapis.com/gobgpapi.MultiExitDiscAttribute" in paths_pattrs_types:
-                pass
-
-            if "type.googleapis.com/gobgpapi.LocalPrefAttribute" in paths_pattrs_types:
-                pass
-
-            if "type.googleapis.com/gobgpapi.MpReachNLRIAttribute" in paths_pattrs_types:
-                pass
-
-            if "type.googleapis.com/gobgpapi.OriginAttribute" in paths_pattrs_types:
-                pass
-
-            if paths_nlri["@type"] == "type.googleapis.com/gobgpapi.LsLinkNLRI":
-                filtered_lsdb.append(
-                    {
-                        "type": "Link",
-                        "localNode": paths_nlri["localNode"],
-                        "remoteNode": paths_nlri["remoteNode"],
-                        "linkDescriptor": paths_nlri["linkDescriptor"],
-                        "lsattribute": {
-                            # TODO: paths_pattr_lsattr may be ref before assignment
-                            "node": paths_pattr_lsattr["node"],
-                            "link": paths_pattr_lsattr["link"],
-                            "prefix": paths_pattr_lsattr["prefix"],
-                        },
-                    }
-                )
-            elif paths_nlri["@type"] == "type.googleapis.com/gobgpapi.LsPrefixV4NLRI":
-                filtered_lsdb.append(
-                    {
-                        "type": "Prefix",
-                        "localNode": paths_nlri["localNode"],
-                        "prefixDescriptor": paths_nlri["prefixDescriptor"],
-                    }
-                )
-            elif paths_nlri["@type"] == "type.googleapis.com/gobgpapi.LsNodeNLRI":
-                filtered_lsdb.append(
-                    {
-                        "type": "Node",
-                        "localNode": paths_nlri["localNode"],
-                        "lsattribute": {
-                            "node": paths_pattr_lsattr["node"],
-                            "link": paths_pattr_lsattr["link"],
-                            "prefix": paths_pattr_lsattr["prefix"],
-                        },
-                    }
-                )
-
-        return filtered_lsdb
-
-    def get_lsdb_2(self, filename: str = None) -> list:
         # Get the whole brib for ls
         b_rib = (
             self.__get_bgp_ls_table()
@@ -198,19 +99,17 @@ class GoBGPQueryWrapper:
         # If you load a nest of different types, some of which are collections.OrderedDict,
         # you can recurse and cast these as dict ... or dump -> load it as Json to just
         # cast them all
-        def to_dict(input_ordered_dict):
+        def remove_OrderedDicts(input_ordered_dict):
             return loads(dumps(input_ordered_dict))
 
         # If you want to replace keys and values in nested dicts, but dont want to recurse,
         # json.dump then find/replace on the string, then load back to a dict
-        def replace_kv_in_dict(t_dict, item_to_be_replaced, replaced_with) -> dict:
+        def replace_kv_in_dict(t_dict, item_to_be_replaced, replaced_with):
             return loads(dumps(t_dict).replace(f'"{item_to_be_replaced}"', f'"{replaced_with}"'))
 
-        new_table = to_dict(best_b_rib)
+        new_table = remove_OrderedDicts(best_b_rib)
         new_table = replace_kv_in_dict(new_table, "@type", "type")
         for k, v in gapi_type_replace_lookup.items():
             new_table = replace_kv_in_dict(new_table, k, v)
-
-        pprint(new_table)
 
         return new_table
