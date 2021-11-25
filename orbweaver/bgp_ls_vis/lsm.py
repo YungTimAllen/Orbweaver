@@ -1,9 +1,8 @@
 import threading
 import time
 import networkx
-import bgp_ls_vis
-import bgp_ls_vis.proto as proto
-import bgp_ls_vis.graphing as graphing
+import orbweaver.bgp_ls_vis.proto as proto
+import orbweaver.bgp_ls_vis.graphing as graphing
 
 
 class LinkStateManager:
@@ -32,15 +31,9 @@ class LinkStateManager:
         return self.graph
 
     def task(self):
-        i = 0
         while True:
-
             time.sleep(self.polling_period)
-
-            # Debugging locally
-            print(f"Added new host newhost{i}")
-            self.__update().add_edge("P9", f"newhost{i}")
-            i += 1
+            self.__update()
 
     def get_hosts(self):
         return [h for h in self.graph.nodes]

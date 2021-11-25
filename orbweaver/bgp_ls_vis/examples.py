@@ -1,6 +1,6 @@
 import yaml
-import bgp_ls_vis.proto
-import bgp_ls_vis.graphing
+import orbweaver.bgp_ls_vis.proto
+import orbweaver.bgp_ls_vis.graphing
 import bgp_ls_vis.dashboard
 
 
@@ -25,7 +25,7 @@ def example1():
     lsdb = rpc.get_lsdb()
 
     # build_nx_from_lsdb will create a NetworkX graph object from the LSDB given by get_lsdb()
-    graph = bgp_ls_vis.graphing.build_nx_from_lsdb(lsdb)
+    graph = orbweaver.bgp_ls_vis.graphing.build_nx_from_lsdb(lsdb)
 
     # Call dashboard package
     bgp_ls_vis.dashboard.main(nx_graph=graph)
@@ -40,9 +40,9 @@ def example2():
     lsdb = rpc.get_lsdb()
 
     # build_nx_from_lsdb will create a NetworkX graph object from the LSDB given by get_lsdb()
-    graph = bgp_ls_vis.graphing.build_nx_from_lsdb(lsdb)
+    graph = orbweaver.bgp_ls_vis.graphing.build_nx_from_lsdb(lsdb)
 
-    bgp_ls_vis.graphing.draw_pyplot_graph(graph)
+    orbweaver.bgp_ls_vis.graphing.draw_pyplot_graph(graph)
 
 
 def example3():
@@ -57,15 +57,15 @@ def example3():
     dumps_dir = "../tests/bgp-ls_table_dumps"
 
     lsdb = rpc.get_lsdb(filename=f"{dumps_dir}/18-node-isis-w-bcast-segment.yaml")
-    graph1 = bgp_ls_vis.graphing.build_nx_from_lsdb(lsdb)
+    graph1 = orbweaver.bgp_ls_vis.graphing.build_nx_from_lsdb(lsdb)
     lsdb = rpc.get_lsdb(filename=f"{dumps_dir}/solar_table.yaml")
-    graph2 = bgp_ls_vis.graphing.build_nx_from_lsdb(lsdb)
+    graph2 = orbweaver.bgp_ls_vis.graphing.build_nx_from_lsdb(lsdb)
     lsdb = rpc.get_lsdb(filename=f"{dumps_dir}/junos_bgpls_nopsn.yml")
-    graph3 = bgp_ls_vis.graphing.build_nx_from_lsdb(lsdb)
+    graph3 = orbweaver.bgp_ls_vis.graphing.build_nx_from_lsdb(lsdb)
 
-    bgp_ls_vis.graphing.draw_pyplot_graph(graph1)
-    bgp_ls_vis.graphing.draw_pyplot_graph(graph2)
-    bgp_ls_vis.graphing.draw_pyplot_graph(graph3)
+    orbweaver.bgp_ls_vis.graphing.draw_pyplot_graph(graph1)
+    orbweaver.bgp_ls_vis.graphing.draw_pyplot_graph(graph2)
+    orbweaver.bgp_ls_vis.graphing.draw_pyplot_graph(graph3)
 
 
 if __name__ == "__main__":
