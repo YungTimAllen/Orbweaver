@@ -770,64 +770,36 @@ _UNKNOWNCAPABILITY = _descriptor.Descriptor(
 )
 
 _MULTIPROTOCOLCAPABILITY.fields_by_name["family"].message_type = gobgp__pb2._FAMILY
-_EXTENDEDNEXTHOPCAPABILITYTUPLE.fields_by_name[
-    "nlri_family"
-].message_type = gobgp__pb2._FAMILY
-_EXTENDEDNEXTHOPCAPABILITYTUPLE.fields_by_name[
-    "nexthop_family"
-].message_type = gobgp__pb2._FAMILY
-_EXTENDEDNEXTHOPCAPABILITY.fields_by_name[
-    "tuples"
-].message_type = _EXTENDEDNEXTHOPCAPABILITYTUPLE
-_GRACEFULRESTARTCAPABILITYTUPLE.fields_by_name[
-    "family"
-].message_type = gobgp__pb2._FAMILY
-_GRACEFULRESTARTCAPABILITY.fields_by_name[
-    "tuples"
-].message_type = _GRACEFULRESTARTCAPABILITYTUPLE
+_EXTENDEDNEXTHOPCAPABILITYTUPLE.fields_by_name["nlri_family"].message_type = gobgp__pb2._FAMILY
+_EXTENDEDNEXTHOPCAPABILITYTUPLE.fields_by_name["nexthop_family"].message_type = gobgp__pb2._FAMILY
+_EXTENDEDNEXTHOPCAPABILITY.fields_by_name["tuples"].message_type = _EXTENDEDNEXTHOPCAPABILITYTUPLE
+_GRACEFULRESTARTCAPABILITYTUPLE.fields_by_name["family"].message_type = gobgp__pb2._FAMILY
+_GRACEFULRESTARTCAPABILITY.fields_by_name["tuples"].message_type = _GRACEFULRESTARTCAPABILITYTUPLE
 _ADDPATHCAPABILITYTUPLE.fields_by_name["family"].message_type = gobgp__pb2._FAMILY
 _ADDPATHCAPABILITYTUPLE.fields_by_name["mode"].enum_type = _ADDPATHMODE
 _ADDPATHCAPABILITY.fields_by_name["tuples"].message_type = _ADDPATHCAPABILITYTUPLE
-_LONGLIVEDGRACEFULRESTARTCAPABILITYTUPLE.fields_by_name[
-    "family"
-].message_type = gobgp__pb2._FAMILY
+_LONGLIVEDGRACEFULRESTARTCAPABILITYTUPLE.fields_by_name["family"].message_type = gobgp__pb2._FAMILY
 _LONGLIVEDGRACEFULRESTARTCAPABILITY.fields_by_name[
     "tuples"
 ].message_type = _LONGLIVEDGRACEFULRESTARTCAPABILITYTUPLE
 DESCRIPTOR.message_types_by_name["MultiProtocolCapability"] = _MULTIPROTOCOLCAPABILITY
 DESCRIPTOR.message_types_by_name["RouteRefreshCapability"] = _ROUTEREFRESHCAPABILITY
-DESCRIPTOR.message_types_by_name[
-    "CarryingLabelInfoCapability"
-] = _CARRYINGLABELINFOCAPABILITY
-DESCRIPTOR.message_types_by_name[
-    "ExtendedNexthopCapabilityTuple"
-] = _EXTENDEDNEXTHOPCAPABILITYTUPLE
-DESCRIPTOR.message_types_by_name[
-    "ExtendedNexthopCapability"
-] = _EXTENDEDNEXTHOPCAPABILITY
-DESCRIPTOR.message_types_by_name[
-    "GracefulRestartCapabilityTuple"
-] = _GRACEFULRESTARTCAPABILITYTUPLE
-DESCRIPTOR.message_types_by_name[
-    "GracefulRestartCapability"
-] = _GRACEFULRESTARTCAPABILITY
-DESCRIPTOR.message_types_by_name[
-    "FourOctetASNumberCapability"
-] = _FOUROCTETASNUMBERCAPABILITY
+DESCRIPTOR.message_types_by_name["CarryingLabelInfoCapability"] = _CARRYINGLABELINFOCAPABILITY
+DESCRIPTOR.message_types_by_name["ExtendedNexthopCapabilityTuple"] = _EXTENDEDNEXTHOPCAPABILITYTUPLE
+DESCRIPTOR.message_types_by_name["ExtendedNexthopCapability"] = _EXTENDEDNEXTHOPCAPABILITY
+DESCRIPTOR.message_types_by_name["GracefulRestartCapabilityTuple"] = _GRACEFULRESTARTCAPABILITYTUPLE
+DESCRIPTOR.message_types_by_name["GracefulRestartCapability"] = _GRACEFULRESTARTCAPABILITY
+DESCRIPTOR.message_types_by_name["FourOctetASNumberCapability"] = _FOUROCTETASNUMBERCAPABILITY
 DESCRIPTOR.message_types_by_name["AddPathCapabilityTuple"] = _ADDPATHCAPABILITYTUPLE
 DESCRIPTOR.message_types_by_name["AddPathCapability"] = _ADDPATHCAPABILITY
-DESCRIPTOR.message_types_by_name[
-    "EnhancedRouteRefreshCapability"
-] = _ENHANCEDROUTEREFRESHCAPABILITY
+DESCRIPTOR.message_types_by_name["EnhancedRouteRefreshCapability"] = _ENHANCEDROUTEREFRESHCAPABILITY
 DESCRIPTOR.message_types_by_name[
     "LongLivedGracefulRestartCapabilityTuple"
 ] = _LONGLIVEDGRACEFULRESTARTCAPABILITYTUPLE
 DESCRIPTOR.message_types_by_name[
     "LongLivedGracefulRestartCapability"
 ] = _LONGLIVEDGRACEFULRESTARTCAPABILITY
-DESCRIPTOR.message_types_by_name[
-    "RouteRefreshCiscoCapability"
-] = _ROUTEREFRESHCISCOCAPABILITY
+DESCRIPTOR.message_types_by_name["RouteRefreshCiscoCapability"] = _ROUTEREFRESHCISCOCAPABILITY
 DESCRIPTOR.message_types_by_name["UnknownCapability"] = _UNKNOWNCAPABILITY
 DESCRIPTOR.enum_types_by_name["AddPathMode"] = _ADDPATHMODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)

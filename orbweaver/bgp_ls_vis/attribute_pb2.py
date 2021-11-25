@@ -17,7 +17,6 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 from . import gobgp_pb2 as gobgp__pb2
 
-
 DESCRIPTOR = _descriptor.FileDescriptor(
     name="attribute.proto",
     package="gobgpapi",
@@ -8256,50 +8255,26 @@ _ASPATHATTRIBUTE.fields_by_name["segments"].message_type = _ASSEGMENT
 _EVPNETHERNETAUTODISCOVERYROUTE.fields_by_name[
     "rd"
 ].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_EVPNETHERNETAUTODISCOVERYROUTE.fields_by_name[
-    "esi"
-].message_type = _ETHERNETSEGMENTIDENTIFIER
+_EVPNETHERNETAUTODISCOVERYROUTE.fields_by_name["esi"].message_type = _ETHERNETSEGMENTIDENTIFIER
 _EVPNMACIPADVERTISEMENTROUTE.fields_by_name[
     "rd"
 ].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_EVPNMACIPADVERTISEMENTROUTE.fields_by_name[
-    "esi"
-].message_type = _ETHERNETSEGMENTIDENTIFIER
+_EVPNMACIPADVERTISEMENTROUTE.fields_by_name["esi"].message_type = _ETHERNETSEGMENTIDENTIFIER
 _EVPNINCLUSIVEMULTICASTETHERNETTAGROUTE.fields_by_name[
     "rd"
 ].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_EVPNETHERNETSEGMENTROUTE.fields_by_name[
-    "rd"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_EVPNETHERNETSEGMENTROUTE.fields_by_name[
-    "esi"
-].message_type = _ETHERNETSEGMENTIDENTIFIER
-_EVPNIPPREFIXROUTE.fields_by_name[
-    "rd"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_EVPNETHERNETSEGMENTROUTE.fields_by_name["rd"].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_EVPNETHERNETSEGMENTROUTE.fields_by_name["esi"].message_type = _ETHERNETSEGMENTIDENTIFIER
+_EVPNIPPREFIXROUTE.fields_by_name["rd"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _EVPNIPPREFIXROUTE.fields_by_name["esi"].message_type = _ETHERNETSEGMENTIDENTIFIER
-_EVPNIPMSIROUTE.fields_by_name[
-    "rd"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_EVPNIPMSIROUTE.fields_by_name[
-    "rt"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_LABELEDVPNIPADDRESSPREFIX.fields_by_name[
-    "rd"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_ROUTETARGETMEMBERSHIPNLRI.fields_by_name[
-    "rt"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_EVPNIPMSIROUTE.fields_by_name["rd"].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_EVPNIPMSIROUTE.fields_by_name["rt"].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_LABELEDVPNIPADDRESSPREFIX.fields_by_name["rd"].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_ROUTETARGETMEMBERSHIPNLRI.fields_by_name["rt"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _FLOWSPECCOMPONENT.fields_by_name["items"].message_type = _FLOWSPECCOMPONENTITEM
-_FLOWSPECNLRI.fields_by_name[
-    "rules"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_VPNFLOWSPECNLRI.fields_by_name[
-    "rd"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_VPNFLOWSPECNLRI.fields_by_name[
-    "rules"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_FLOWSPECNLRI.fields_by_name["rules"].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_VPNFLOWSPECNLRI.fields_by_name["rd"].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_VPNFLOWSPECNLRI.fields_by_name["rules"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _LSNODENLRI.fields_by_name["local_node"].message_type = _LSNODEDESCRIPTOR
 _LSLINKNLRI.fields_by_name["local_node"].message_type = _LSNODEDESCRIPTOR
 _LSLINKNLRI.fields_by_name["remote_node"].message_type = _LSNODEDESCRIPTOR
@@ -8309,18 +8284,12 @@ _LSPREFIXV4NLRI.fields_by_name["prefix_descriptor"].message_type = _LSPREFIXDESC
 _LSPREFIXV6NLRI.fields_by_name["local_node"].message_type = _LSNODEDESCRIPTOR
 _LSPREFIXV6NLRI.fields_by_name["prefix_descriptor"].message_type = _LSPREFIXDESCRIPTOR
 _LSADDRPREFIX.fields_by_name["type"].enum_type = _LSNLRITYPE
-_LSADDRPREFIX.fields_by_name[
-    "nlri"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_LSADDRPREFIX.fields_by_name["nlri"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _LSADDRPREFIX.fields_by_name["protocol_id"].enum_type = _LSPROTOCOLID
 _MPREACHNLRIATTRIBUTE.fields_by_name["family"].message_type = gobgp__pb2._FAMILY
-_MPREACHNLRIATTRIBUTE.fields_by_name[
-    "nlris"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_MPREACHNLRIATTRIBUTE.fields_by_name["nlris"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _MPUNREACHNLRIATTRIBUTE.fields_by_name["family"].message_type = gobgp__pb2._FAMILY
-_MPUNREACHNLRIATTRIBUTE.fields_by_name[
-    "nlris"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_MPUNREACHNLRIATTRIBUTE.fields_by_name["nlris"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _EXTENDEDCOMMUNITIESATTRIBUTE.fields_by_name[
     "communities"
 ].message_type = google_dot_protobuf_dot_any__pb2._ANY
@@ -8329,9 +8298,7 @@ _TUNNELENCAPSUBTLVSRBINDINGSID.fields_by_name[
     "bsid"
 ].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _SRV6ENDPPOINTBEHAVIOR.fields_by_name["behavior"].enum_type = _SRV6BEHAVIOR
-_SRV6BINDINGSID.fields_by_name[
-    "endpoint_behavior_structure"
-].message_type = _SRV6ENDPPOINTBEHAVIOR
+_SRV6BINDINGSID.fields_by_name["endpoint_behavior_structure"].message_type = _SRV6ENDPPOINTBEHAVIOR
 _TUNNELENCAPSUBTLVSRENLP.fields_by_name["enlp"].enum_type = _ENLPTYPE
 _SEGMENTTYPEA.fields_by_name["flags"].message_type = _SEGMENTFLAGS
 _SEGMENTTYPEB.fields_by_name["flags"].message_type = _SEGMENTFLAGS
@@ -8339,16 +8306,12 @@ _TUNNELENCAPSUBTLVSRSEGMENTLIST.fields_by_name["weight"].message_type = _SRWEIGH
 _TUNNELENCAPSUBTLVSRSEGMENTLIST.fields_by_name[
     "segments"
 ].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_TUNNELENCAPTLV.fields_by_name[
-    "tlvs"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_TUNNELENCAPTLV.fields_by_name["tlvs"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _TUNNELENCAPATTRIBUTE.fields_by_name["tlvs"].message_type = _TUNNELENCAPTLV
 _IP6EXTENDEDCOMMUNITIESATTRIBUTE.fields_by_name[
     "communities"
 ].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_AIGPATTRIBUTE.fields_by_name[
-    "tlvs"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_AIGPATTRIBUTE.fields_by_name["tlvs"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _LARGECOMMUNITIESATTRIBUTE.fields_by_name["communities"].message_type = _LARGECOMMUNITY
 _LSSRCAPABILITIES.fields_by_name["ranges"].message_type = _LSSRRANGE
 _LSSRLOCALBLOCK.fields_by_name["ranges"].message_type = _LSSRRANGE
@@ -8368,9 +8331,7 @@ _SRV6INFORMATIONSUBTLV.fields_by_name[
 ].message_type = _SRV6INFORMATIONSUBTLV_SUBSUBTLVSENTRY
 _SRV6L3SERVICETLV_SUBTLVSENTRY.fields_by_name["value"].message_type = _SRV6TLV
 _SRV6L3SERVICETLV_SUBTLVSENTRY.containing_type = _SRV6L3SERVICETLV
-_SRV6L3SERVICETLV.fields_by_name[
-    "sub_tlvs"
-].message_type = _SRV6L3SERVICETLV_SUBTLVSENTRY
+_SRV6L3SERVICETLV.fields_by_name["sub_tlvs"].message_type = _SRV6L3SERVICETLV_SUBTLVSENTRY
 _PREFIXSID.fields_by_name["tlvs"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 DESCRIPTOR.message_types_by_name["OriginAttribute"] = _ORIGINATTRIBUTE
 DESCRIPTOR.message_types_by_name["AsSegment"] = _ASSEGMENT
@@ -8386,24 +8347,12 @@ DESCRIPTOR.message_types_by_name["ClusterListAttribute"] = _CLUSTERLISTATTRIBUTE
 DESCRIPTOR.message_types_by_name["IPAddressPrefix"] = _IPADDRESSPREFIX
 DESCRIPTOR.message_types_by_name["LabeledIPAddressPrefix"] = _LABELEDIPADDRESSPREFIX
 DESCRIPTOR.message_types_by_name["EncapsulationNLRI"] = _ENCAPSULATIONNLRI
-DESCRIPTOR.message_types_by_name[
-    "RouteDistinguisherTwoOctetAS"
-] = _ROUTEDISTINGUISHERTWOOCTETAS
-DESCRIPTOR.message_types_by_name[
-    "RouteDistinguisherIPAddress"
-] = _ROUTEDISTINGUISHERIPADDRESS
-DESCRIPTOR.message_types_by_name[
-    "RouteDistinguisherFourOctetAS"
-] = _ROUTEDISTINGUISHERFOUROCTETAS
-DESCRIPTOR.message_types_by_name[
-    "EthernetSegmentIdentifier"
-] = _ETHERNETSEGMENTIDENTIFIER
-DESCRIPTOR.message_types_by_name[
-    "EVPNEthernetAutoDiscoveryRoute"
-] = _EVPNETHERNETAUTODISCOVERYROUTE
-DESCRIPTOR.message_types_by_name[
-    "EVPNMACIPAdvertisementRoute"
-] = _EVPNMACIPADVERTISEMENTROUTE
+DESCRIPTOR.message_types_by_name["RouteDistinguisherTwoOctetAS"] = _ROUTEDISTINGUISHERTWOOCTETAS
+DESCRIPTOR.message_types_by_name["RouteDistinguisherIPAddress"] = _ROUTEDISTINGUISHERIPADDRESS
+DESCRIPTOR.message_types_by_name["RouteDistinguisherFourOctetAS"] = _ROUTEDISTINGUISHERFOUROCTETAS
+DESCRIPTOR.message_types_by_name["EthernetSegmentIdentifier"] = _ETHERNETSEGMENTIDENTIFIER
+DESCRIPTOR.message_types_by_name["EVPNEthernetAutoDiscoveryRoute"] = _EVPNETHERNETAUTODISCOVERYROUTE
+DESCRIPTOR.message_types_by_name["EVPNMACIPAdvertisementRoute"] = _EVPNMACIPADVERTISEMENTROUTE
 DESCRIPTOR.message_types_by_name[
     "EVPNInclusiveMulticastEthernetTagRoute"
 ] = _EVPNINCLUSIVEMULTICASTETHERNETTAGROUTE
@@ -8411,12 +8360,8 @@ DESCRIPTOR.message_types_by_name["EVPNEthernetSegmentRoute"] = _EVPNETHERNETSEGM
 DESCRIPTOR.message_types_by_name["EVPNIPPrefixRoute"] = _EVPNIPPREFIXROUTE
 DESCRIPTOR.message_types_by_name["EVPNIPMSIRoute"] = _EVPNIPMSIROUTE
 DESCRIPTOR.message_types_by_name["SRPolicyNLRI"] = _SRPOLICYNLRI
-DESCRIPTOR.message_types_by_name[
-    "LabeledVPNIPAddressPrefix"
-] = _LABELEDVPNIPADDRESSPREFIX
-DESCRIPTOR.message_types_by_name[
-    "RouteTargetMembershipNLRI"
-] = _ROUTETARGETMEMBERSHIPNLRI
+DESCRIPTOR.message_types_by_name["LabeledVPNIPAddressPrefix"] = _LABELEDVPNIPADDRESSPREFIX
+DESCRIPTOR.message_types_by_name["RouteTargetMembershipNLRI"] = _ROUTETARGETMEMBERSHIPNLRI
 DESCRIPTOR.message_types_by_name["FlowSpecIPPrefix"] = _FLOWSPECIPPREFIX
 DESCRIPTOR.message_types_by_name["FlowSpecMAC"] = _FLOWSPECMAC
 DESCRIPTOR.message_types_by_name["FlowSpecComponentItem"] = _FLOWSPECCOMPONENTITEM
@@ -8434,15 +8379,9 @@ DESCRIPTOR.message_types_by_name["LsPrefixV6NLRI"] = _LSPREFIXV6NLRI
 DESCRIPTOR.message_types_by_name["LsAddrPrefix"] = _LSADDRPREFIX
 DESCRIPTOR.message_types_by_name["MpReachNLRIAttribute"] = _MPREACHNLRIATTRIBUTE
 DESCRIPTOR.message_types_by_name["MpUnreachNLRIAttribute"] = _MPUNREACHNLRIATTRIBUTE
-DESCRIPTOR.message_types_by_name[
-    "TwoOctetAsSpecificExtended"
-] = _TWOOCTETASSPECIFICEXTENDED
-DESCRIPTOR.message_types_by_name[
-    "IPv4AddressSpecificExtended"
-] = _IPV4ADDRESSSPECIFICEXTENDED
-DESCRIPTOR.message_types_by_name[
-    "FourOctetAsSpecificExtended"
-] = _FOUROCTETASSPECIFICEXTENDED
+DESCRIPTOR.message_types_by_name["TwoOctetAsSpecificExtended"] = _TWOOCTETASSPECIFICEXTENDED
+DESCRIPTOR.message_types_by_name["IPv4AddressSpecificExtended"] = _IPV4ADDRESSSPECIFICEXTENDED
+DESCRIPTOR.message_types_by_name["FourOctetAsSpecificExtended"] = _FOUROCTETASSPECIFICEXTENDED
 DESCRIPTOR.message_types_by_name["ValidationExtended"] = _VALIDATIONEXTENDED
 DESCRIPTOR.message_types_by_name["ColorExtended"] = _COLOREXTENDED
 DESCRIPTOR.message_types_by_name["EncapExtended"] = _ENCAPEXTENDED
@@ -8465,31 +8404,19 @@ DESCRIPTOR.message_types_by_name[
 ] = _REDIRECTFOUROCTETASSPECIFICEXTENDED
 DESCRIPTOR.message_types_by_name["TrafficRemarkExtended"] = _TRAFFICREMARKEXTENDED
 DESCRIPTOR.message_types_by_name["UnknownExtended"] = _UNKNOWNEXTENDED
-DESCRIPTOR.message_types_by_name[
-    "ExtendedCommunitiesAttribute"
-] = _EXTENDEDCOMMUNITIESATTRIBUTE
+DESCRIPTOR.message_types_by_name["ExtendedCommunitiesAttribute"] = _EXTENDEDCOMMUNITIESATTRIBUTE
 DESCRIPTOR.message_types_by_name["As4PathAttribute"] = _AS4PATHATTRIBUTE
 DESCRIPTOR.message_types_by_name["As4AggregatorAttribute"] = _AS4AGGREGATORATTRIBUTE
 DESCRIPTOR.message_types_by_name["PmsiTunnelAttribute"] = _PMSITUNNELATTRIBUTE
-DESCRIPTOR.message_types_by_name[
-    "TunnelEncapSubTLVEncapsulation"
-] = _TUNNELENCAPSUBTLVENCAPSULATION
-DESCRIPTOR.message_types_by_name[
-    "TunnelEncapSubTLVProtocol"
-] = _TUNNELENCAPSUBTLVPROTOCOL
+DESCRIPTOR.message_types_by_name["TunnelEncapSubTLVEncapsulation"] = _TUNNELENCAPSUBTLVENCAPSULATION
+DESCRIPTOR.message_types_by_name["TunnelEncapSubTLVProtocol"] = _TUNNELENCAPSUBTLVPROTOCOL
 DESCRIPTOR.message_types_by_name["TunnelEncapSubTLVColor"] = _TUNNELENCAPSUBTLVCOLOR
-DESCRIPTOR.message_types_by_name[
-    "TunnelEncapSubTLVSRPreference"
-] = _TUNNELENCAPSUBTLVSRPREFERENCE
+DESCRIPTOR.message_types_by_name["TunnelEncapSubTLVSRPreference"] = _TUNNELENCAPSUBTLVSRPREFERENCE
 DESCRIPTOR.message_types_by_name[
     "TunnelEncapSubTLVSRCandidatePathName"
 ] = _TUNNELENCAPSUBTLVSRCANDIDATEPATHNAME
-DESCRIPTOR.message_types_by_name[
-    "TunnelEncapSubTLVSRPriority"
-] = _TUNNELENCAPSUBTLVSRPRIORITY
-DESCRIPTOR.message_types_by_name[
-    "TunnelEncapSubTLVSRBindingSID"
-] = _TUNNELENCAPSUBTLVSRBINDINGSID
+DESCRIPTOR.message_types_by_name["TunnelEncapSubTLVSRPriority"] = _TUNNELENCAPSUBTLVSRPRIORITY
+DESCRIPTOR.message_types_by_name["TunnelEncapSubTLVSRBindingSID"] = _TUNNELENCAPSUBTLVSRBINDINGSID
 DESCRIPTOR.message_types_by_name["SRBindingSID"] = _SRBINDINGSID
 DESCRIPTOR.message_types_by_name["SRv6EndPpointBehavior"] = _SRV6ENDPPOINTBEHAVIOR
 DESCRIPTOR.message_types_by_name["SRv6BindingSID"] = _SRV6BINDINGSID
@@ -8498,15 +8425,11 @@ DESCRIPTOR.message_types_by_name["SRWeight"] = _SRWEIGHT
 DESCRIPTOR.message_types_by_name["SegmentFlags"] = _SEGMENTFLAGS
 DESCRIPTOR.message_types_by_name["SegmentTypeA"] = _SEGMENTTYPEA
 DESCRIPTOR.message_types_by_name["SegmentTypeB"] = _SEGMENTTYPEB
-DESCRIPTOR.message_types_by_name[
-    "TunnelEncapSubTLVSRSegmentList"
-] = _TUNNELENCAPSUBTLVSRSEGMENTLIST
+DESCRIPTOR.message_types_by_name["TunnelEncapSubTLVSRSegmentList"] = _TUNNELENCAPSUBTLVSRSEGMENTLIST
 DESCRIPTOR.message_types_by_name["TunnelEncapSubTLVUnknown"] = _TUNNELENCAPSUBTLVUNKNOWN
 DESCRIPTOR.message_types_by_name["TunnelEncapTLV"] = _TUNNELENCAPTLV
 DESCRIPTOR.message_types_by_name["TunnelEncapAttribute"] = _TUNNELENCAPATTRIBUTE
-DESCRIPTOR.message_types_by_name[
-    "IPv6AddressSpecificExtended"
-] = _IPV6ADDRESSSPECIFICEXTENDED
+DESCRIPTOR.message_types_by_name["IPv6AddressSpecificExtended"] = _IPV6ADDRESSSPECIFICEXTENDED
 DESCRIPTOR.message_types_by_name[
     "RedirectIPv6AddressSpecificExtended"
 ] = _REDIRECTIPV6ADDRESSSPECIFICEXTENDED
@@ -8517,9 +8440,7 @@ DESCRIPTOR.message_types_by_name["AigpTLVIGPMetric"] = _AIGPTLVIGPMETRIC
 DESCRIPTOR.message_types_by_name["AigpTLVUnknown"] = _AIGPTLVUNKNOWN
 DESCRIPTOR.message_types_by_name["AigpAttribute"] = _AIGPATTRIBUTE
 DESCRIPTOR.message_types_by_name["LargeCommunity"] = _LARGECOMMUNITY
-DESCRIPTOR.message_types_by_name[
-    "LargeCommunitiesAttribute"
-] = _LARGECOMMUNITIESATTRIBUTE
+DESCRIPTOR.message_types_by_name["LargeCommunitiesAttribute"] = _LARGECOMMUNITIESATTRIBUTE
 DESCRIPTOR.message_types_by_name["LsNodeFlags"] = _LSNODEFLAGS
 DESCRIPTOR.message_types_by_name["LsIGPFlags"] = _LSIGPFLAGS
 DESCRIPTOR.message_types_by_name["LsSrRange"] = _LSSRRANGE

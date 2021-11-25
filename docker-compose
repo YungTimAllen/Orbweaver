@@ -11,4 +11,4 @@ services:
   orbweaver:
     build: ./orbweaver
     ports:
-      - 80:5000
+      - 5000:80

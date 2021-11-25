@@ -857,9 +857,7 @@ def add_GobgpApiServicer_to_server(servicer, server):
             response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
         ),
     }
-    generic_handler = grpc.method_handlers_generic_handler(
-        "gobgpapi.GobgpApi", rpc_method_handlers
-    )
+    generic_handler = grpc.method_handlers_generic_handler("gobgpapi.GobgpApi", rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 

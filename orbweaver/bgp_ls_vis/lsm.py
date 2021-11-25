@@ -1,8 +1,8 @@
 import threading
 import time
 import networkx
-import proto
-import graphing as graphing
+from . import proto
+from . import graphing
 
 
 class LinkStateManager:

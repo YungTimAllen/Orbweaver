@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-import threading
-import time
-
 from flask import Flask, render_template, jsonify
-import networkx
 from networkx.readwrite import json_graph
 import yaml
 from bgp_ls_vis.lsm import LinkStateManager
@@ -40,7 +36,7 @@ def rest_get_networkx_graph():
 
 
 def main():
-    app.run(debug=False)
+    app.run(debug=False, host='0.0.0.0', port=80)
 
 
 if __name__ == "__main__":

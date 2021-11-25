@@ -13314,16 +13314,12 @@ _GETBGPRESPONSE.fields_by_name["global"].message_type = _GLOBAL
 _ADDPEERREQUEST.fields_by_name["peer"].message_type = _PEER
 _LISTPEERRESPONSE.fields_by_name["peer"].message_type = _PEER
 _UPDATEPEERREQUEST.fields_by_name["peer"].message_type = _PEER
-_RESETPEERREQUEST.fields_by_name[
-    "direction"
-].enum_type = _RESETPEERREQUEST_SOFTRESETDIRECTION
+_RESETPEERREQUEST.fields_by_name["direction"].enum_type = _RESETPEERREQUEST_SOFTRESETDIRECTION
 _RESETPEERREQUEST_SOFTRESETDIRECTION.containing_type = _RESETPEERREQUEST
 _MONITORPEERRESPONSE.fields_by_name["peer"].message_type = _PEER
 _ADDPEERGROUPREQUEST.fields_by_name["peer_group"].message_type = _PEERGROUP
 _UPDATEPEERGROUPREQUEST.fields_by_name["peer_group"].message_type = _PEERGROUP
-_ADDDYNAMICNEIGHBORREQUEST.fields_by_name[
-    "dynamic_neighbor"
-].message_type = _DYNAMICNEIGHBOR
+_ADDDYNAMICNEIGHBORREQUEST.fields_by_name["dynamic_neighbor"].message_type = _DYNAMICNEIGHBOR
 _ADDPATHREQUEST.fields_by_name["table_type"].enum_type = _TABLETYPE
 _ADDPATHREQUEST.fields_by_name["path"].message_type = _PATH
 _DELETEPATHREQUEST.fields_by_name["table_type"].enum_type = _TABLETYPE
@@ -13357,19 +13353,11 @@ _LISTDEFINEDSETRESPONSE.fields_by_name["defined_set"].message_type = _DEFINEDSET
 _ADDSTATEMENTREQUEST.fields_by_name["statement"].message_type = _STATEMENT
 _DELETESTATEMENTREQUEST.fields_by_name["statement"].message_type = _STATEMENT
 _LISTSTATEMENTRESPONSE.fields_by_name["statement"].message_type = _STATEMENT
-_ADDPOLICYASSIGNMENTREQUEST.fields_by_name[
-    "assignment"
-].message_type = _POLICYASSIGNMENT
-_DELETEPOLICYASSIGNMENTREQUEST.fields_by_name[
-    "assignment"
-].message_type = _POLICYASSIGNMENT
+_ADDPOLICYASSIGNMENTREQUEST.fields_by_name["assignment"].message_type = _POLICYASSIGNMENT
+_DELETEPOLICYASSIGNMENTREQUEST.fields_by_name["assignment"].message_type = _POLICYASSIGNMENT
 _LISTPOLICYASSIGNMENTREQUEST.fields_by_name["direction"].enum_type = _POLICYDIRECTION
-_LISTPOLICYASSIGNMENTRESPONSE.fields_by_name[
-    "assignment"
-].message_type = _POLICYASSIGNMENT
-_SETPOLICYASSIGNMENTREQUEST.fields_by_name[
-    "assignment"
-].message_type = _POLICYASSIGNMENT
+_LISTPOLICYASSIGNMENTRESPONSE.fields_by_name["assignment"].message_type = _POLICYASSIGNMENT
+_SETPOLICYASSIGNMENTREQUEST.fields_by_name["assignment"].message_type = _POLICYASSIGNMENT
 _LISTRPKIREQUEST.fields_by_name["family"].message_type = _FAMILY
 _LISTRPKIRESPONSE.fields_by_name["server"].message_type = _RPKI
 _LISTRPKITABLEREQUEST.fields_by_name["family"].message_type = _FAMILY
@@ -13389,9 +13377,7 @@ _VALIDATION_STATE.containing_type = _VALIDATION
 _VALIDATION_REASON.containing_type = _VALIDATION
 _PATH.fields_by_name["nlri"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _PATH.fields_by_name["pattrs"].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_PATH.fields_by_name[
-    "age"
-].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_PATH.fields_by_name["age"].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _PATH.fields_by_name["validation"].message_type = _VALIDATION
 _PATH.fields_by_name["family"].message_type = _FAMILY
 _DESTINATION.fields_by_name["paths"].message_type = _PATH
@@ -13422,24 +13408,16 @@ _APPLYPOLICY.fields_by_name["import_policy"].message_type = _POLICYASSIGNMENT
 _PREFIXLIMIT.fields_by_name["family"].message_type = _FAMILY
 _PEERCONF.fields_by_name["remove_private_as"].enum_type = _PEERCONF_REMOVEPRIVATEAS
 _PEERCONF_REMOVEPRIVATEAS.containing_type = _PEERCONF
-_PEERGROUPCONF.fields_by_name[
-    "remove_private_as"
-].enum_type = _PEERGROUPCONF_REMOVEPRIVATEAS
+_PEERGROUPCONF.fields_by_name["remove_private_as"].enum_type = _PEERGROUPCONF_REMOVEPRIVATEAS
 _PEERGROUPCONF_REMOVEPRIVATEAS.containing_type = _PEERGROUPCONF
-_PEERGROUPSTATE.fields_by_name[
-    "remove_private_as"
-].enum_type = _PEERGROUPSTATE_REMOVEPRIVATEAS
+_PEERGROUPSTATE.fields_by_name["remove_private_as"].enum_type = _PEERGROUPSTATE_REMOVEPRIVATEAS
 _PEERGROUPSTATE_REMOVEPRIVATEAS.containing_type = _PEERGROUPSTATE
 _PEERSTATE.fields_by_name["messages"].message_type = _MESSAGES
 _PEERSTATE.fields_by_name["queues"].message_type = _QUEUES
 _PEERSTATE.fields_by_name["session_state"].enum_type = _PEERSTATE_SESSIONSTATE
 _PEERSTATE.fields_by_name["admin_state"].enum_type = _PEERSTATE_ADMINSTATE
-_PEERSTATE.fields_by_name[
-    "remote_cap"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_PEERSTATE.fields_by_name[
-    "local_cap"
-].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_PEERSTATE.fields_by_name["remote_cap"].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_PEERSTATE.fields_by_name["local_cap"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _PEERSTATE_SESSIONSTATE.containing_type = _PEERSTATE
 _PEERSTATE_ADMINSTATE.containing_type = _PEERSTATE
 _MESSAGES.fields_by_name["received"].message_type = _MESSAGE
@@ -13456,12 +13434,8 @@ _MPGRACEFULRESTART.fields_by_name["config"].message_type = _MPGRACEFULRESTARTCON
 _MPGRACEFULRESTART.fields_by_name["state"].message_type = _MPGRACEFULRESTARTSTATE
 _AFISAFICONFIG.fields_by_name["family"].message_type = _FAMILY
 _AFISAFISTATE.fields_by_name["family"].message_type = _FAMILY
-_ROUTESELECTIONOPTIONS.fields_by_name[
-    "config"
-].message_type = _ROUTESELECTIONOPTIONSCONFIG
-_ROUTESELECTIONOPTIONS.fields_by_name[
-    "state"
-].message_type = _ROUTESELECTIONOPTIONSSTATE
+_ROUTESELECTIONOPTIONS.fields_by_name["config"].message_type = _ROUTESELECTIONOPTIONSCONFIG
+_ROUTESELECTIONOPTIONS.fields_by_name["state"].message_type = _ROUTESELECTIONOPTIONSSTATE
 _EBGP.fields_by_name["config"].message_type = _EBGPCONFIG
 _EBGP.fields_by_name["state"].message_type = _EBGPSTATE
 _IBGP.fields_by_name["config"].message_type = _IBGPCONFIG
@@ -13470,18 +13444,10 @@ _USEMULTIPLEPATHS.fields_by_name["config"].message_type = _USEMULTIPLEPATHSCONFI
 _USEMULTIPLEPATHS.fields_by_name["state"].message_type = _USEMULTIPLEPATHSSTATE
 _USEMULTIPLEPATHS.fields_by_name["ebgp"].message_type = _EBGP
 _USEMULTIPLEPATHS.fields_by_name["ibgp"].message_type = _IBGP
-_ROUTETARGETMEMBERSHIP.fields_by_name[
-    "config"
-].message_type = _ROUTETARGETMEMBERSHIPCONFIG
-_ROUTETARGETMEMBERSHIP.fields_by_name[
-    "state"
-].message_type = _ROUTETARGETMEMBERSHIPSTATE
-_LONGLIVEDGRACEFULRESTART.fields_by_name[
-    "config"
-].message_type = _LONGLIVEDGRACEFULRESTARTCONFIG
-_LONGLIVEDGRACEFULRESTART.fields_by_name[
-    "state"
-].message_type = _LONGLIVEDGRACEFULRESTARTSTATE
+_ROUTETARGETMEMBERSHIP.fields_by_name["config"].message_type = _ROUTETARGETMEMBERSHIPCONFIG
+_ROUTETARGETMEMBERSHIP.fields_by_name["state"].message_type = _ROUTETARGETMEMBERSHIPSTATE
+_LONGLIVEDGRACEFULRESTART.fields_by_name["config"].message_type = _LONGLIVEDGRACEFULRESTARTCONFIG
+_LONGLIVEDGRACEFULRESTART.fields_by_name["state"].message_type = _LONGLIVEDGRACEFULRESTARTSTATE
 _AFISAFI.fields_by_name["mp_graceful_restart"].message_type = _MPGRACEFULRESTART
 _AFISAFI.fields_by_name["config"].message_type = _AFISAFICONFIG
 _AFISAFI.fields_by_name["state"].message_type = _AFISAFISTATE
@@ -13490,9 +13456,7 @@ _AFISAFI.fields_by_name["route_selection_options"].message_type = _ROUTESELECTIO
 _AFISAFI.fields_by_name["use_multiple_paths"].message_type = _USEMULTIPLEPATHS
 _AFISAFI.fields_by_name["prefix_limits"].message_type = _PREFIXLIMIT
 _AFISAFI.fields_by_name["route_target_membership"].message_type = _ROUTETARGETMEMBERSHIP
-_AFISAFI.fields_by_name[
-    "long_lived_graceful_restart"
-].message_type = _LONGLIVEDGRACEFULRESTART
+_AFISAFI.fields_by_name["long_lived_graceful_restart"].message_type = _LONGLIVEDGRACEFULRESTART
 _AFISAFI.fields_by_name["add_paths"].message_type = _ADDPATHS
 _ADDPATHS.fields_by_name["config"].message_type = _ADDPATHSCONFIG
 _ADDPATHS.fields_by_name["state"].message_type = _ADDPATHSSTATE
@@ -13532,16 +13496,12 @@ _ROA.fields_by_name["conf"].message_type = _RPKICONF
 _VRF.fields_by_name["rd"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _VRF.fields_by_name["import_rt"].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _VRF.fields_by_name["export_rt"].message_type = google_dot_protobuf_dot_any__pb2._ANY
-_GLOBAL.fields_by_name[
-    "route_selection_options"
-].message_type = _ROUTESELECTIONOPTIONSCONFIG
+_GLOBAL.fields_by_name["route_selection_options"].message_type = _ROUTESELECTIONOPTIONSCONFIG
 _GLOBAL.fields_by_name["default_route_distance"].message_type = _DEFAULTROUTEDISTANCE
 _GLOBAL.fields_by_name["confederation"].message_type = _CONFEDERATION
 _GLOBAL.fields_by_name["graceful_restart"].message_type = _GRACEFULRESTART
 _GLOBAL.fields_by_name["apply_policy"].message_type = _APPLYPOLICY
-_RPKISTATE.fields_by_name[
-    "uptime"
-].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_RPKISTATE.fields_by_name["uptime"].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _RPKISTATE.fields_by_name[
     "downtime"
 ].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -13569,9 +13529,7 @@ DESCRIPTOR.message_types_by_name["AddPeerGroupRequest"] = _ADDPEERGROUPREQUEST
 DESCRIPTOR.message_types_by_name["DeletePeerGroupRequest"] = _DELETEPEERGROUPREQUEST
 DESCRIPTOR.message_types_by_name["UpdatePeerGroupRequest"] = _UPDATEPEERGROUPREQUEST
 DESCRIPTOR.message_types_by_name["UpdatePeerGroupResponse"] = _UPDATEPEERGROUPRESPONSE
-DESCRIPTOR.message_types_by_name[
-    "AddDynamicNeighborRequest"
-] = _ADDDYNAMICNEIGHBORREQUEST
+DESCRIPTOR.message_types_by_name["AddDynamicNeighborRequest"] = _ADDDYNAMICNEIGHBORREQUEST
 DESCRIPTOR.message_types_by_name["AddPathRequest"] = _ADDPATHREQUEST
 DESCRIPTOR.message_types_by_name["AddPathResponse"] = _ADDPATHRESPONSE
 DESCRIPTOR.message_types_by_name["DeletePathRequest"] = _DELETEPATHREQUEST
@@ -13599,21 +13557,11 @@ DESCRIPTOR.message_types_by_name["AddStatementRequest"] = _ADDSTATEMENTREQUEST
 DESCRIPTOR.message_types_by_name["DeleteStatementRequest"] = _DELETESTATEMENTREQUEST
 DESCRIPTOR.message_types_by_name["ListStatementRequest"] = _LISTSTATEMENTREQUEST
 DESCRIPTOR.message_types_by_name["ListStatementResponse"] = _LISTSTATEMENTRESPONSE
-DESCRIPTOR.message_types_by_name[
-    "AddPolicyAssignmentRequest"
-] = _ADDPOLICYASSIGNMENTREQUEST
-DESCRIPTOR.message_types_by_name[
-    "DeletePolicyAssignmentRequest"
-] = _DELETEPOLICYASSIGNMENTREQUEST
-DESCRIPTOR.message_types_by_name[
-    "ListPolicyAssignmentRequest"
-] = _LISTPOLICYASSIGNMENTREQUEST
-DESCRIPTOR.message_types_by_name[
-    "ListPolicyAssignmentResponse"
-] = _LISTPOLICYASSIGNMENTRESPONSE
-DESCRIPTOR.message_types_by_name[
-    "SetPolicyAssignmentRequest"
-] = _SETPOLICYASSIGNMENTREQUEST
+DESCRIPTOR.message_types_by_name["AddPolicyAssignmentRequest"] = _ADDPOLICYASSIGNMENTREQUEST
+DESCRIPTOR.message_types_by_name["DeletePolicyAssignmentRequest"] = _DELETEPOLICYASSIGNMENTREQUEST
+DESCRIPTOR.message_types_by_name["ListPolicyAssignmentRequest"] = _LISTPOLICYASSIGNMENTREQUEST
+DESCRIPTOR.message_types_by_name["ListPolicyAssignmentResponse"] = _LISTPOLICYASSIGNMENTRESPONSE
+DESCRIPTOR.message_types_by_name["SetPolicyAssignmentRequest"] = _SETPOLICYASSIGNMENTREQUEST
 DESCRIPTOR.message_types_by_name["AddRpkiRequest"] = _ADDRPKIREQUEST
 DESCRIPTOR.message_types_by_name["DeleteRpkiRequest"] = _DELETERPKIREQUEST
 DESCRIPTOR.message_types_by_name["ListRpkiRequest"] = _LISTRPKIREQUEST
@@ -13658,12 +13606,8 @@ DESCRIPTOR.message_types_by_name["MpGracefulRestartState"] = _MPGRACEFULRESTARTS
 DESCRIPTOR.message_types_by_name["MpGracefulRestart"] = _MPGRACEFULRESTART
 DESCRIPTOR.message_types_by_name["AfiSafiConfig"] = _AFISAFICONFIG
 DESCRIPTOR.message_types_by_name["AfiSafiState"] = _AFISAFISTATE
-DESCRIPTOR.message_types_by_name[
-    "RouteSelectionOptionsConfig"
-] = _ROUTESELECTIONOPTIONSCONFIG
-DESCRIPTOR.message_types_by_name[
-    "RouteSelectionOptionsState"
-] = _ROUTESELECTIONOPTIONSSTATE
+DESCRIPTOR.message_types_by_name["RouteSelectionOptionsConfig"] = _ROUTESELECTIONOPTIONSCONFIG
+DESCRIPTOR.message_types_by_name["RouteSelectionOptionsState"] = _ROUTESELECTIONOPTIONSSTATE
 DESCRIPTOR.message_types_by_name["RouteSelectionOptions"] = _ROUTESELECTIONOPTIONS
 DESCRIPTOR.message_types_by_name["UseMultiplePathsConfig"] = _USEMULTIPLEPATHSCONFIG
 DESCRIPTOR.message_types_by_name["UseMultiplePathsState"] = _USEMULTIPLEPATHSSTATE
@@ -13674,19 +13618,11 @@ DESCRIPTOR.message_types_by_name["IbgpConfig"] = _IBGPCONFIG
 DESCRIPTOR.message_types_by_name["IbgpState"] = _IBGPSTATE
 DESCRIPTOR.message_types_by_name["Ibgp"] = _IBGP
 DESCRIPTOR.message_types_by_name["UseMultiplePaths"] = _USEMULTIPLEPATHS
-DESCRIPTOR.message_types_by_name[
-    "RouteTargetMembershipConfig"
-] = _ROUTETARGETMEMBERSHIPCONFIG
-DESCRIPTOR.message_types_by_name[
-    "RouteTargetMembershipState"
-] = _ROUTETARGETMEMBERSHIPSTATE
+DESCRIPTOR.message_types_by_name["RouteTargetMembershipConfig"] = _ROUTETARGETMEMBERSHIPCONFIG
+DESCRIPTOR.message_types_by_name["RouteTargetMembershipState"] = _ROUTETARGETMEMBERSHIPSTATE
 DESCRIPTOR.message_types_by_name["RouteTargetMembership"] = _ROUTETARGETMEMBERSHIP
-DESCRIPTOR.message_types_by_name[
-    "LongLivedGracefulRestartConfig"
-] = _LONGLIVEDGRACEFULRESTARTCONFIG
-DESCRIPTOR.message_types_by_name[
-    "LongLivedGracefulRestartState"
-] = _LONGLIVEDGRACEFULRESTARTSTATE
+DESCRIPTOR.message_types_by_name["LongLivedGracefulRestartConfig"] = _LONGLIVEDGRACEFULRESTARTCONFIG
+DESCRIPTOR.message_types_by_name["LongLivedGracefulRestartState"] = _LONGLIVEDGRACEFULRESTARTSTATE
 DESCRIPTOR.message_types_by_name["LongLivedGracefulRestart"] = _LONGLIVEDGRACEFULRESTART
 DESCRIPTOR.message_types_by_name["AfiSafi"] = _AFISAFI
 DESCRIPTOR.message_types_by_name["AddPathsConfig"] = _ADDPATHSCONFIG
