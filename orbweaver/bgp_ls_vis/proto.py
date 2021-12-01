@@ -6,7 +6,9 @@ from google.protobuf.json_format import MessageToDict
 
 # RPC & GoBGP imports
 import grpc
-from . import gobgp_pb2_grpc, gobgp_pb2 as gobgp
+from . import gobgp_pb2 as gobgp
+from . import gobgp_pb2_grpc
+from . import attribute_pb2
 
 
 class GoBGPQueryWrapper:
