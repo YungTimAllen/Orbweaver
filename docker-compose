@@ -8,5 +8,4 @@ services:
     restart: always
   orbweaver:
     build: ./orbweaver
-    ports:
-      - 6000:80
+    network_mode: host

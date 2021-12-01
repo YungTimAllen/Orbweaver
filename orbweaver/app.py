@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """"""
 from flask import Flask, render_template, jsonify
+from time import sleep
 import yaml
 from bgp_ls_vis.lsm import LinkStateManager
 
 
 app = Flask(__name__)
-LSM = LinkStateManager(target_ipv4_address="localhost")
+LSM = LinkStateManager(target_ipv4_address="127.0.0.1")
 
 
 @app.route("/")
@@ -35,6 +36,8 @@ def rest_get_networkx_graph():
 
 
 def main():
+    print("Sleep to let GoBGP come up...")
+    sleep(5)
     app.run(debug=False, host="0.0.0.0", port=80)
 
 
