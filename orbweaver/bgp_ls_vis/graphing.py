@@ -3,6 +3,8 @@ import networkx as nx
 
 
 def build_nx_from_lsdb(lsdb: list) -> nx.MultiDiGraph:
+    """Given an LSDB gleaned from BGP-LS table in GoBGP, constructs a NetworkX graph object
+    and returns it"""
     graph = nx.MultiDiGraph()
 
     # init Node LSAs to NetworkX Graph object

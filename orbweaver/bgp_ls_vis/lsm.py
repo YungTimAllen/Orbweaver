@@ -1,3 +1,4 @@
+"""Link-State Manager Class - Handles periodic updates and Flask endpoint logic"""
 import threading
 import time
 import networkx
@@ -7,6 +8,8 @@ from . import graphing
 
 
 class LinkStateManager:
+    """Link-State Manager object, wrapper for GoBGP calls"""
+
     def __init__(
         self,
         target_ipv4_address,
@@ -14,33 +17,37 @@ class LinkStateManager:
         task: bool = True,
         polling_period: int = 3,  # seconds
     ):
-
+        """Constructor"""
         self.rpc = proto.GoBGPQueryWrapper(
             target_ipv4_address=target_ipv4_address,
             target_rpc_port=target_port,
         )
         self.polling_period = polling_period
-        # self.rpc = proto.GoBGPQueryWrapper(connect=False)
         self.__update()
         if task:
             threading.Thread(target=self.task).start()
 
     def __update(self) -> networkx.Graph:
+        """Updates the cached nx topology by calling gRPC methods that query GoBGP for it's LSDB
+        then loading the content into a networkx graph object"""
         self.lsdb = self.rpc.get_lsdb()
-        # self.lsdb = self.rpc.get_lsdb(filename="18-node-isis-w-bcast-segment.yaml")
         self.graph: networkx.Graph = graphing.build_nx_from_lsdb(self.lsdb)
         return self.graph
 
     def task(self):
+        """Blocking task to be threaded, periodically updates the cached networkx graph object"""
         while True:
             time.sleep(self.polling_period)
             self.__update()
 
     def get_hosts(self) -> list:
-        return [h for h in self.graph.nodes]
+        """Returns all nodes in the networkx graph, aka all link-state routers in the LSDB"""
+        return list(self.graph.nodes)
 
     def get_lsdb(self) -> list:
+        """Returns the full LSDB as gleaned from the BGP-LS table in GoBGP"""
         return self.lsdb
 
     def get_graph(self) -> dict:
+        """Returns the cached NetworkX graph object as JSON"""
         return node_link_data(self.graph)

@@ -68,8 +68,9 @@ class GoBGPQueryWrapper:
         return self.__get_bgp_ls_table()
 
     def get_lsdb(self, filename: str = None) -> list:
+        """Gets the LSDB from the BGP-LS, including a gRPC call to GoBGP. LSDB can also be loaded from a file."""
         # Get the whole brib for ls
-        b_rib = (
+        gobgp_ls_table = (
             self.__get_bgp_ls_table()
             if not filename
             else yaml.load(open(filename, "r"), Loader=yaml.Loader)
@@ -77,7 +78,7 @@ class GoBGPQueryWrapper:
 
         # Filter for only best-paths
         best_b_rib = []
-        for route in b_rib:
+        for route in gobgp_ls_table:
             destination = route["destination"]
             for path in destination["paths"]:
                 if path["best"]:
