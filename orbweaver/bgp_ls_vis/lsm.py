@@ -12,7 +12,7 @@ class LinkStateManager:
         target_ipv4_address,
         target_port: int = 50051,
         task: bool = True,
-        polling_period: int = 30,
+        polling_period: int = 3,  # seconds
     ):
 
         self.rpc = proto.GoBGPQueryWrapper(
