@@ -2,9 +2,7 @@ version: "3.9"
 services:
   gobgp:
     build: ./gobgp
-    ports:
-      - 179:179
-      - 50051:50051
+    network_mode: host
     volumes:
       - .:/var/tmp
     restart: always
