@@ -1,4 +1,14 @@
 global:
   config:
     as: 65001
-    router-id: 10.2.9.9
+    router-id: 172.16.10.2
+neighbors:
+- config:
+    neighbor-address: 172.16.10.5
+    peer-as: 65001
+  transport:
+    config:
+      local-address: 172.16.10.2
+  afi-safis:
+  - config:
+      afi-safi-name: ls

@@ -1,4 +1,4 @@
-"""Graphing tools for bgp_ls_vis"""
+"""Discrete graphing tools for bgp_ls_vis"""
 import networkx as nx
 
 

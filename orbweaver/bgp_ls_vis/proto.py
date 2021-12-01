@@ -54,7 +54,7 @@ class GoBGPQueryWrapper:
             List of NLRI objects for the BGP-LS AFI/SAFI
 
         Notes:
-            To build required structured, message, calls __build_rpc_request() first
+            To build required structured message, calls __build_rpc_request() first
         """
         request = self.__build_rpc_request()
         response = self.stub.ListPath(request)
@@ -97,7 +97,7 @@ class GoBGPQueryWrapper:
         # If you load a nest of different types, some of which are collections.OrderedDict,
         # you can recurse and cast these as dict ... or dump -> load it as Json to just
         # cast them all
-        def remove_OrderedDicts(input_ordered_dict):
+        def remove_ordered_dicts(input_ordered_dict):
             return loads(dumps(input_ordered_dict))
 
         # If you want to replace keys and values in nested dicts, but dont want to recurse,
@@ -105,9 +105,10 @@ class GoBGPQueryWrapper:
         def replace_kv_in_dict(t_dict, item_to_be_replaced, replaced_with):
             return loads(dumps(t_dict).replace(f'"{item_to_be_replaced}"', f'"{replaced_with}"'))
 
-        new_table = remove_OrderedDicts(best_b_rib)
+        new_table = remove_ordered_dicts(best_b_rib)
         new_table = replace_kv_in_dict(new_table, "@type", "type")
-        for k, v in gapi_type_replace_lookup.items():
-            new_table = replace_kv_in_dict(new_table, k, v)
+        # Rename all keys using lookup dict gapi_type_replace_lookup
+        for old_key, new_key in gapi_type_replace_lookup.items():
+            new_table = replace_kv_in_dict(new_table, old_key, new_key)
 
         return new_table
