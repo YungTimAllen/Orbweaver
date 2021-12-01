@@ -15,19 +15,19 @@ class LinkStateManager:
         polling_period: int = 30,
     ):
 
-        # rpc = proto.GoBGPQueryWrapper(
-        #     target_ipv4_address=target_ipv4_address,
-        #     target_rpc_port=target_port,
-        # )
+        self.rpc = proto.GoBGPQueryWrapper(
+            target_ipv4_address=target_ipv4_address,
+            target_rpc_port=target_port,
+        )
         self.polling_period = polling_period
-        self.rpc = proto.GoBGPQueryWrapper(connect=False)
+        # self.rpc = proto.GoBGPQueryWrapper(connect=False)
         self.__update()
         if task:
             threading.Thread(target=self.task).start()
 
     def __update(self) -> networkx.Graph:
-        # self.lsdb = self.rpc.get_lsdb()
-        self.lsdb = self.rpc.get_lsdb(filename="18-node-isis-w-bcast-segment.yaml")
+        self.lsdb = self.rpc.get_lsdb()
+        # self.lsdb = self.rpc.get_lsdb(filename="18-node-isis-w-bcast-segment.yaml")
         self.graph: networkx.Graph = graphing.build_nx_from_lsdb(self.lsdb)
         return self.graph
 

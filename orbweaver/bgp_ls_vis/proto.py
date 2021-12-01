@@ -15,7 +15,7 @@ class GoBGPQueryWrapper:
     def __init__(
         self,
         target_ipv4_address: str = "",
-        target_rpc_port: str = "",
+        target_rpc_port: int = "",
         connect: bool = True,
     ):
         """Constructor initialises RPC session

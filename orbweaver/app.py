@@ -6,7 +6,7 @@ from bgp_ls_vis.lsm import LinkStateManager
 
 
 app = Flask(__name__)
-LSM = LinkStateManager(target_ipv4_address="10.0.0.1")
+LSM = LinkStateManager(target_ipv4_address="localhost")
 
 
 @app.route("/")
