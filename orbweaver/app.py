@@ -2,7 +2,7 @@
 """Orbweaver, Flask RESTful frontend for GoBGP"""
 import sys
 from os.path import isfile
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, make_response
 import yaml
 from bgp_ls_vis.lsm import LinkStateManager
 
@@ -24,35 +24,37 @@ LSM = LinkStateManager(
 @app.route("/")
 def home():
     """Flask root endpoint"""
-    return render_template(
-        "home.html",
-        title="LSDB Report",
-        hosts_list=str(LSM.get_hosts()),
-        lsdb=yaml.dump(LSM.get_lsdb()),
+    return make_response(
+        render_template(
+            "home.html",
+            title="LSDB Report",
+            hosts_list=str(LSM.get_hosts()),
+            lsdb=yaml.dump(LSM.get_lsdb()),
+        ),
+        200,
     )
 
 
 @app.route("/hosts")
 def rest_get_hosts():
     """Flask endpoint to return all nodes in the LSDB graph"""
-    return jsonify(LSM.get_hosts())
+    return make_response(jsonify(LSM.get_hosts()), 200)
 
 
 @app.route("/lsdb")
 def rest_get_lsdb():
     """Flask endpoint to return the LSDB as gleaned from GoBGP's BGP-LS table"""
-    return jsonify(LSM.get_lsdb())
+    return make_response(jsonify(LSM.get_lsdb()), 200)
 
 
 @app.route("/nx")
 def rest_get_networkx_graph():
     """Flask endpoint to return the LSDB as a NetworkX BiDirGraph object in JSON format"""
-    return jsonify(LSM.get_graph())
+    return make_response(jsonify(LSM.get_graph()), 200)
 
 
 def main():
     """Entrypoint when ran as a script"""
-
     app.run(debug=False, host=CONF["flask_bind_ip"], port=CONF["flask_bind_port"])
 
 
