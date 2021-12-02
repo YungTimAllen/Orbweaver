@@ -66,4 +66,6 @@ Currently, there are four endpoints defined, with more to come. See: `tests/exam
     * See: https://networkx.org/documentation/stable/reference/readwrite/json_graph.html
 
 * `/`
-    * Renders a page containing the LSDB and a list of link-state routers (nodes in the nx object) 
+    * Renders a page containing the LSDB and a list of link-state routers (nodes in the nx object)
+  
+![Example GNS run](https://i.imgur.com/5udPmlh.png)
