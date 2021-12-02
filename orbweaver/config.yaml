@@ -1,0 +1,6 @@
+---
+flask_bind_ip: 0.0.0.0
+flask_bind_port: 80
+gobgp_grpc_ip: 172.16.10.2
+gobgp_grpc_port: 50051
+update_interval: 3
