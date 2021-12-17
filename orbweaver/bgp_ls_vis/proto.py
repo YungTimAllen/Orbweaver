@@ -86,6 +86,8 @@ class GoBGPQueryWrapper:
                 if path["best"]:
                     best_b_rib.append(path)
 
+        print(yaml.dump(best_b_rib))
+
         # Find and replace dict for ugly grpc naming convention
         gapi_type_replace_lookup = {
             "type.googleapis.com/gobgpapi.OriginAttribute": "OriginAttribute",
