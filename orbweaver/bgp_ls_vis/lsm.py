@@ -51,3 +51,23 @@ class LinkStateManager:
     def get_graph(self) -> dict:
         """Returns the cached NetworkX graph object as JSON"""
         return node_link_data(self.graph)
+
+    def get_shortest_path(self, source_node: str, target_node: str) -> dict:
+        """Shortest path between two node names"""
+        return networkx.shortest_path(
+            G=self.graph,
+            source=source_node,
+            target=target_node,
+            method="dijkstra",
+            weight="igpMetric",
+        )
+
+    def get_shortest_path_subgraph(self, source_node: str, target_node: str) -> dict:
+        nodes_in_spf = networkx.shortest_path(
+            G=self.graph,
+            source=source_node,
+            target=target_node,
+            method="dijkstra",
+            weight="igpMetric",
+        )
+        return node_link_data(self.graph.subgraph(nodes=nodes_in_spf))

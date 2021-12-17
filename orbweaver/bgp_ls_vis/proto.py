@@ -69,7 +69,7 @@ class GoBGPQueryWrapper:
         """Dumps the raw BGP-LS table received from GoBGP"""
         return self.__get_bgp_ls_table()
 
-    def get_lsdb(self, filename: str = None) -> list:
+    def get_lsdb(self, best_only: bool = True, filename: str = None) -> list:
         """Gets the LSDB from the BGP-LS, including a gRPC call to GoBGP. LSDB can also be loaded from a file."""
         # Get the whole brib for ls
         gobgp_ls_table = (
@@ -79,14 +79,15 @@ class GoBGPQueryWrapper:
         )
 
         # Filter for only best-paths
-        best_b_rib = []
+        b_rib = []
         for route in gobgp_ls_table:
             destination = route["destination"]
             for path in destination["paths"]:
-                if path["best"]:
-                    best_b_rib.append(path)
-
-        print(yaml.dump(best_b_rib))
+                if best_only:
+                    if path["best"]:
+                        b_rib.append(path)
+                else:
+                    b_rib.append(path)
 
         # Find and replace dict for ugly grpc naming convention
         gapi_type_replace_lookup = {
@@ -112,10 +113,36 @@ class GoBGPQueryWrapper:
         def replace_kv_in_dict(t_dict, item_to_be_replaced, replaced_with):
             return loads(dumps(t_dict).replace(f'"{item_to_be_replaced}"', f'"{replaced_with}"'))
 
-        new_table = remove_ordered_dicts(best_b_rib)
+        new_table = remove_ordered_dicts(b_rib)
         new_table = replace_kv_in_dict(new_table, "@type", "type")
         # Rename all keys using lookup dict gapi_type_replace_lookup
         for old_key, new_key in gapi_type_replace_lookup.items():
             new_table = replace_kv_in_dict(new_table, old_key, new_key)
+
+        # A list of single-item non-duplicate dicts is no-good, so flatten it
+        # Single item dicts have a key of 'type:', which is what we flatten on
+        for path in new_table:
+            pattrs_flat = {}
+            for pattr in path["pattrs"]:
+                pattrs_flat[pattr["type"]] = {}
+                for key, value in pattr.items():
+                    if key != "type":
+                        pattrs_flat[pattr["type"]][key] = value
+            path["pattrs"] = pattrs_flat
+
+        # Finally, we bring some values to the root to assist in various tasks (qol)
+        for path in new_table:
+            # IGP metric, for spf pathcalc
+            if path["nlri"]["nlri"]["type"] == "LsLinkNLRI":
+                path["igpMetric"] = path["pattrs"]["LsAttribute"]["link"]["igpMetric"]
+            # set key 'name' value to t137 value if it exits,
+            # else, set it to regular router-id (thats an nsap for isis)
+            # (note that the networkx node in the graph object is named by igpRouterId regardless)
+            if path["nlri"]["nlri"]["type"] == "LsNodeNLRI":
+                path["name"] = path["pattrs"]["LsAttribute"]["node"].get(
+                    "name", path["nlri"]["nlri"]["localNode"]["igpRouterId"]
+                )
+
+        print(yaml.dump(new_table))
 
         return new_table

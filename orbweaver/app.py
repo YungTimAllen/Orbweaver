@@ -53,6 +53,60 @@ def rest_get_networkx_graph():
     return make_response(jsonify(LSM.get_graph()), 200)
 
 
+@app.route("/shortest_path/<source_node>/<target_node>/hosts", methods=["POST"])
+def rest_shortest_path_hosts(source_node: str, target_node: str):
+    """alculates the shortest path and returns an ordered list of node names.
+
+    Examples:
+        $ curl -X POST http://127.0.0.1/shortest_path/0000.0000.0001/0000.0000.0009
+        ["0000.0000.0001","0000.0000.0005","0000.0000.0009"]
+
+    Args:
+        source_node:
+        target_node:
+
+    Returns:
+
+    """
+    return make_response(
+        jsonify(
+            LSM.get_shortest_path(
+                source_node=source_node,
+                target_node=target_node,
+            )
+        ),
+        200,
+    )
+
+
+@app.route("/shortest_path/<source_node>/<target_node>", methods=["POST"])
+def rest_shortest_path(source_node: str, target_node: str):
+    """Calculates the shortest path and returns a sub-graph of those nodes concerned.
+    What is returned is a networkx graph object in JSON format. Note that edges in the subgraph
+    which are not used in the shortest path calculated will NOT be pruned.
+
+    Examples:
+        curl -X POST http://127.0.0.1/shortest_path/0000.0000.0001/0000.0000.0009
+        {"directed":true,"graph":{},"links":[{"data":{ ...
+
+    Args:
+        source_node:
+        target_node:
+
+    Returns:
+
+    """
+    return make_response(
+        jsonify(
+            LSM.get_shortest_path_subgraph(
+                source_node=source_node,
+                target_node=target_node,
+            )
+        ),
+        200,
+    )
+
+
 def main():
     """Entrypoint when ran as a script"""
     app.run(debug=False, host=CONF["flask_bind_ip"], port=CONF["flask_bind_port"])
